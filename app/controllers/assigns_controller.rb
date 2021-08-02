@@ -1,3 +1,4 @@
+
 class AssignsController < ApplicationController
   before_action :authenticate_user!
   before_action :email_exist?, only: [:create]
@@ -17,7 +18,6 @@ class AssignsController < ApplicationController
   def destroy
     assign = Assign.find(params[:id])
     destroy_message = assign_destroy(assign, assign.user)
-
     redirect_to team_url(params[:team_id]), notice: destroy_message
   end
 

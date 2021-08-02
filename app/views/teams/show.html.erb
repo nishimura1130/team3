@@ -42,6 +42,13 @@
                       <td><%= image_tag 'default.jpg', size: '40x40' %></td>
                       <td><%= assign.user.email %></td>
                       <td><%= link_to I18n.t('views.button.delete'), team_assign_path(@team, assign), method: :delete, class: 'btn btn-sm btn-danger' %></td>
+                      <% if team_owner? %>
+                        <%= form_with model: @team, local: true, url: owner_change_path do |form| %>
+                          <%= form.hidden_field :user_id ,value: assign.user_id%>
+                          <%= form.hidden_field :team_id ,value: assign.team_id%>
+                          <td><%= form.submit '権限移動', class: 'btn btn-sm btn-info' %></td>
+                        <% end %>
+                      <% end %>
                     </tr>
                   <% end %>
                 </tbody>
