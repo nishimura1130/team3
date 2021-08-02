@@ -1,4 +1,4 @@
-  
+
 Rails.application.routes.draw do
   root 'statics#top'
   get :dashboard, to: 'teams#dashboard'
