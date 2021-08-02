@@ -54,7 +54,6 @@ class TeamsController < ApplicationController
     redirect_to team_url(params[:team][:team_id])
   end
 
-
   private
 
   def set_team

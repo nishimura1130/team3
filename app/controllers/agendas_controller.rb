@@ -26,9 +26,9 @@ class AgendasController < ApplicationController
     if @agenda.team.owner_id == current_user.id || @agenda.user_id == current_user.id
       @agenda.destroy
       AgendaDestroy.agenda_destroy(@agenda).deliver
-      redirect_to dashboard_url,notice:"タスクを削除しました"
+      redirect_to dashboard_url, notice: "タスクを削除しました"
     else
-      redirect_to dashboard_url,notice:"そのAgendaの作者もしくはそのAgendaに紐づいているTeamの作者（オーナー）のみ"
+      redirect_to dashboard_url, notice: "そのAgendaの作者もしくはそのAgendaに紐づいているTeamの作者（オーナー）のみ"
     end
   end
 
