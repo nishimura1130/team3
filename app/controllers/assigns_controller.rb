@@ -1,4 +1,3 @@
-
 class AssignsController < ApplicationController
   before_action :authenticate_user!
   before_action :email_exist?, only: [:create]

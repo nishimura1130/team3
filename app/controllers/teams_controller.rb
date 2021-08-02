@@ -1,3 +1,4 @@
+
 class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_team, only: %i[show edit update destroy]
@@ -53,7 +54,6 @@ class TeamsController < ApplicationController
     OwnerChangeMailer.owner_change(@team).deliver
     redirect_to team_url(params[:team][:team_id])
   end
-
 
   private
 
